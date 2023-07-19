@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Display JSON in HTML</title>
+</head>
+<body>
+  <div id="jsonContent">
+    <!-- JSON content will be displayed here -->
+  </div>
+
+  <script>
+    // Function to fetch and display JSON content
+    function displayJSON() {
+      fetch('state_district.json')
+        .then(response => response.json())
+        .then(data => {
+          const jsonContentDiv = document.getElementById('jsonContent');
+          jsonContentDiv.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+        })
+        .catch(error => console.error('Error fetching JSON:', error));
+    }
+
+    // Call the function to display JSON content
+    displayJSON();
+  </script>
+</body>
+</html>
